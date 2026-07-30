@@ -1,10 +1,8 @@
 <div align="center">
 
 <div align="center">
-  <img src="assets/logo.png" alt="NOVA AI Chatbot Logo" width="180">
+  <img src="./logo.png" alt="NOVA AI Chatbot Logo" width="180"/>
 </div>
-
-<br>
 # 🤖 NOVA AI Chatbot
 
 ### A Premium Rule-Based AI Chatbot Built with Python
