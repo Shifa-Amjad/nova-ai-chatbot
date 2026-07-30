@@ -1,5 +1,5 @@
 <div align="center">
-![Uploading image.png…]()
+
 
 # 🤖 NOVA AI Chatbot
 
