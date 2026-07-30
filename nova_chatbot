@@ -1,0 +1,906 @@
+# ============================================================
+#                NOVA AI CHATBOT v2.0
+#          DecodeLabs AI Internship Project
+#
+#            Created by: Shifa Amjad
+# ============================================================
+
+import random
+import time
+from datetime import datetime
+
+# ============================================================
+# Typing Animation
+# ============================================================
+
+def nova(message):
+    print("\nNOVA: ", end="")
+    for character in message:
+        print(character, end="", flush=True)
+        time.sleep(0.02)
+    print()
+
+# ============================================================
+# Welcome Banner
+# ============================================================
+
+print("=" * 70)
+print("███╗   ██╗ ██████╗ ██╗   ██╗ █████╗ ")
+print("████╗  ██║██╔═══██╗██║   ██║██╔══██╗")
+print("██╔██╗ ██║██║   ██║██║   ██║███████║")
+print("██║╚██╗██║██║   ██║╚██╗ ██╔╝██╔══██║")
+print("██║ ╚████║╚██████╔╝ ╚████╔╝ ██║  ██║")
+print("╚═╝  ╚═══╝ ╚═════╝   ╚═══╝  ╚═╝  ╚═╝")
+print("=" * 70)
+
+print("\n        Welcome to NOVA AI Chatbot")
+print("     DecodeLabs Artificial Intelligence Project")
+print()
+
+username = input("Enter your name: ").title()
+
+nova(f"Hello {username}! Welcome to NOVA AI Chatbot.")
+nova("Type 'help' to see all available commands.")
+nova("Type 'exit' anytime to end the conversation.")
+
+# ============================================================
+# Greeting Messages
+# ============================================================
+
+greetings = [
+
+    "Hello! Nice to meet you.",
+
+    "Hi! Hope you are having a wonderful day.",
+
+    "Assalam-o-Alaikum!",
+
+    "Welcome back!",
+
+    "It's great to see you!",
+
+    "Hey! How can I help you today?"
+
+]
+
+# ============================================================
+# Farewell Messages
+# ============================================================
+
+farewells = [
+
+    "Goodbye! Have a wonderful day.",
+
+    "Allah Hafiz!",
+
+    "Take care and keep learning.",
+
+    "Thanks for chatting with me.",
+
+    "See you again soon!"
+
+]
+
+# ============================================================
+# Jokes
+# ============================================================
+
+jokes = [
+
+    "Why do programmers love Python? Because it is easy to read.",
+
+    "Debugging is like being a detective in a crime movie where you are also the criminal.",
+
+    "Why was the computer cold? Because it forgot to close Windows.",
+
+    "Programmers don't make mistakes. They create unexpected features.",
+
+    "Why do Python developers wear glasses? Because they can't C."
+
+]
+
+# ============================================================
+# Motivation
+# ============================================================
+
+motivations = [
+
+    "Believe in yourself.",
+
+    "Every expert was once a beginner.",
+
+    "Practice makes progress.",
+
+    "Success comes from consistency.",
+
+    "Never stop learning."
+
+]
+
+# ============================================================
+# AI Facts
+# ============================================================
+
+ai_facts = [
+
+    "Artificial Intelligence was officially introduced in 1956.",
+
+    "Machine Learning is a branch of AI.",
+
+    "Python is the most popular language for AI.",
+
+    "Chatbots are one of the earliest AI applications.",
+
+    "AI is transforming healthcare, education and finance."
+
+]
+
+# ============================================================
+# Coding Tips
+# ============================================================
+
+coding_tips = [
+
+    "Write clean and readable code.",
+
+    "Practice coding every day.",
+
+    "Understand the logic before writing code.",
+
+    "Debug patiently.",
+
+    "Projects improve programming skills."
+
+]
+
+# ============================================================
+# Study Tips
+# ============================================================
+
+study_tips = [
+
+    "Study for 45 minutes and then take a break.",
+
+    "Revise your notes every week.",
+
+    "Practice more than you read.",
+
+    "Solve coding problems regularly.",
+
+    "Consistency beats intensity."
+
+]
+
+# ============================================================
+# Compliments
+# ============================================================
+
+compliments = [
+
+    "You're doing an amazing job!",
+
+    "You're a fast learner.",
+
+    "Your future is bright.",
+
+    "Keep believing in yourself.",
+
+    "You are becoming a better programmer every day."
+
+]
+
+# ============================================================
+# Inspirational Quotes
+# ============================================================
+
+quotes = [
+
+    "Dream big. Start small. Act now.",
+
+    "Learning never exhausts the mind.",
+
+    "Knowledge is power.",
+
+    "Success is the sum of small efforts repeated daily.",
+
+    "Great things take time."
+
+]
+
+# ============================================================
+# Chat History
+# ============================================================
+
+history = []
+
+# ============================================================
+# Conversation Counter
+# ============================================================
+
+total_questions = 0
+
+# ============================================================
+# Help Function
+# ============================================================
+
+def show_help():
+
+    print("\n================ AVAILABLE COMMANDS ================\n")
+
+    print("hello")
+    print("hi")
+    print("hey")
+    print("how are you")
+    print("who are you")
+    print("what is your name")
+    print("who created you")
+    print("what can you do")
+
+    print("what is ai")
+    print("what is machine learning")
+    print("what is python")
+
+    print("date")
+    print("time")
+    print("calculator")
+
+    print("tell me a joke")
+    print("motivate me")
+    print("coding tip")
+    print("study tip")
+    print("ai fact")
+    print("quote")
+    print("compliment me")
+
+    print("good morning")
+    print("good afternoon")
+    print("good evening")
+    print("good night")
+
+    print("i am happy")
+    print("i am sad")
+    print("i am stressed")
+
+    print("thank you")
+    print("help")
+    print("exit")
+
+    print("\n====================================================\n")
+    # ============================================================
+#                    MAIN CHATBOT LOOP
+# ============================================================
+
+while True:
+
+    user = input(f"\n{username}: ").lower().strip()
+
+    history.append(f"{username}: {user}")
+    total_questions += 1
+
+    # ========================================================
+    # EXIT
+    # ========================================================
+
+    if user in ["exit", "bye", "quit", "goodbye"]:
+
+        nova(random.choice(farewells))
+        break
+
+    # ========================================================
+    # HELP
+    # ========================================================
+
+    elif user == "help":
+
+        show_help()
+
+    # ========================================================
+    # GREETINGS
+    # ========================================================
+
+    elif user in ["hello", "hi", "hey"]:
+
+        nova(random.choice(greetings))
+
+    elif user == "good morning":
+
+        nova("Good Morning! I hope you have a productive day.")
+
+    elif user == "good afternoon":
+
+        nova("Good Afternoon! Keep smiling.")
+
+    elif user == "good evening":
+
+        nova("Good Evening! Hope your day went well.")
+
+    elif user == "good night":
+
+        nova("Good Night! Sleep well and recharge for tomorrow.")
+
+    # ========================================================
+    # BASIC QUESTIONS
+    # ========================================================
+
+    elif user == "how are you":
+
+        nova("I'm doing great! Thank you for asking.")
+
+    elif user == "who are you":
+
+        nova("I am NOVA, a Rule-Based Artificial Intelligence Chatbot.")
+
+    elif user == "what is your name":
+
+        nova("My name is NOVA.")
+
+    elif user == "who created you":
+
+        nova("I was created by Shifa Amjad for the DecodeLabs AI Internship Project.")
+
+    elif user == "what can you do":
+
+        nova(
+            "I can answer predefined questions, tell jokes, motivate you, "
+            "perform calculations, show date and time, and much more."
+        )
+
+    elif user == "thank you":
+
+        nova("You're most welcome!")
+
+    elif user == "thanks":
+
+        nova("Happy to help!")
+
+    elif user == "nice":
+
+        nova("Thank you! That means a lot.")
+
+    elif user == "awesome":
+
+        nova("I'm glad you liked it!")
+
+    # ========================================================
+    # AI QUESTIONS
+    # ========================================================
+
+    elif user == "what is ai":
+
+        nova(
+            "Artificial Intelligence is the ability of machines "
+            "to perform tasks that normally require human intelligence."
+        )
+
+    elif user == "what is machine learning":
+
+        nova(
+            "Machine Learning is a branch of AI that enables computers "
+            "to learn from data without being explicitly programmed."
+        )
+
+    elif user == "what is deep learning":
+
+        nova(
+            "Deep Learning is a subset of Machine Learning that uses "
+            "artificial neural networks."
+        )
+
+    elif user == "what is python":
+
+        nova(
+            "Python is one of the most popular programming languages "
+            "used in Artificial Intelligence and Data Science."
+        )
+
+    elif user == "what is chatbot":
+
+        nova(
+            "A chatbot is a software program that communicates "
+            "with users using predefined rules or Artificial Intelligence."
+        )
+
+    elif user == "what is programming":
+
+        nova(
+            "Programming is the process of writing instructions "
+            "that tell a computer what to do."
+        )
+
+    elif user == "what is coding":
+
+        nova(
+            "Coding means writing computer programs using "
+            "programming languages."
+        )
+
+    elif user == "what is data science":
+
+        nova(
+            "Data Science is the field of extracting useful "
+            "knowledge from data."
+        )
+
+    # ========================================================
+    # RANDOM KNOWLEDGE
+    # ========================================================
+
+    elif user == "ai fact":
+
+        nova(random.choice(ai_facts))
+
+    elif user == "coding tip":
+
+        nova(random.choice(coding_tips))
+
+    elif user == "study tip":
+
+        nova(random.choice(study_tips))
+
+    elif user == "quote":
+
+        nova(random.choice(quotes))
+
+    elif user == "compliment me":
+
+        nova(random.choice(compliments))
+
+    elif user == "motivate me":
+
+        nova(random.choice(motivations))
+
+    elif user == "tell me a joke":
+
+        nova(random.choice(jokes))
+    # ========================================================
+    # DATE & TIME
+    # ========================================================
+
+    elif user == "date":
+
+        today = datetime.now()
+        nova("Today's date is " + today.strftime("%d %B %Y"))
+
+    elif user == "time":
+
+        current = datetime.now()
+        nova("Current time is " + current.strftime("%I:%M:%S %p"))
+
+    elif user == "day":
+
+        today = datetime.now()
+        nova("Today is " + today.strftime("%A"))
+
+    # ========================================================
+    # CALCULATOR
+    # ========================================================
+
+    elif user == "calculator":
+
+        nova("Calculator Mode Activated.")
+
+        try:
+
+            first = float(input("Enter first number: "))
+            operator = input("Enter operator (+ - * /): ")
+            second = float(input("Enter second number: "))
+
+            if operator == "+":
+                answer = first + second
+
+            elif operator == "-":
+                answer = first - second
+
+            elif operator == "*":
+                answer = first * second
+
+            elif operator == "/":
+
+                if second == 0:
+                    nova("Division by zero is not allowed.")
+                    continue
+
+                answer = first / second
+
+            else:
+                nova("Invalid operator.")
+                continue
+
+            nova(f"The answer is {answer}")
+
+        except ValueError:
+
+            nova("Please enter valid numbers.")
+
+    # ========================================================
+    # MOOD DETECTION
+    # ========================================================
+
+    elif user == "i am happy":
+
+        nova("That's wonderful! Keep smiling and enjoy every moment.")
+
+    elif user == "i am sad":
+
+        nova("I'm sorry you're feeling sad. Remember, every difficult time eventually passes.")
+
+    elif user == "i am stressed":
+
+        nova("Take a deep breath, drink some water, and solve one problem at a time.")
+
+    elif user == "i am tired":
+
+        nova("You deserve some rest. A short break can improve your productivity.")
+
+    elif user == "i am bored":
+
+        nova("Try learning something new, reading a book, or practicing Python!")
+
+    # ========================================================
+    # HEALTH
+    # ========================================================
+
+    elif user == "health tip":
+
+        tips = [
+            "Drink plenty of water.",
+            "Sleep at least 7 to 8 hours.",
+            "Exercise regularly.",
+            "Eat healthy food.",
+            "Take short breaks while studying."
+        ]
+
+        nova(random.choice(tips))
+
+    # ========================================================
+    # CAREER
+    # ========================================================
+
+    elif user == "career advice":
+
+        nova("Keep building projects, practice coding daily, and never stop learning.")
+
+    elif user == "how can i become an ai engineer":
+
+        nova("Learn Python, Mathematics, Machine Learning, Deep Learning, and build real-world AI projects.")
+
+    elif user == "should i learn python":
+
+        nova("Absolutely! Python is one of the best programming languages for AI, automation, and web development.")
+
+    # ========================================================
+    # FAVORITES
+    # ========================================================
+
+    elif user == "what is your favorite color":
+
+        nova("I like blue because it represents technology, intelligence, and innovation.")
+
+    elif user == "what is your favorite food":
+
+        nova("I'm an AI, so I don't eat food. But humans seem to love pizza!")
+
+    elif user == "what is your favorite programming language":
+
+        nova("Python is my favorite because it is simple, powerful, and widely used in AI.")
+
+    # ========================================================
+    # WEATHER
+    # ========================================================
+
+    elif user == "how is the weather":
+
+        nova("I can't access live weather information, but I hope it's a beautiful day where you are!")
+
+    # ========================================================
+    # ABOUT PROJECT
+    # ========================================================
+
+    elif user == "what is decodelabs":
+
+        nova("DecodeLabs is a learning platform where students build practical programming and AI projects.")
+
+    elif user == "tell me about your creator":
+
+        nova("My creator is Shifa Amjad. She developed me as part of her DecodeLabs Artificial Intelligence Internship.")
+
+    elif user == "which internship are you made for":
+
+        nova("I was built for the DecodeLabs Artificial Intelligence Internship Project 1.")
+
+    elif user == "who is shifa":
+
+        nova("Shifa Amjad is a BS Artificial Intelligence student and the developer of NOVA AI Chatbot.")
+    # ========================================================
+    # PRODUCTIVITY
+    # ========================================================
+
+    elif user == "productivity tip":
+
+        productivity_tips = [
+            "Plan your day before starting work.",
+            "Complete the hardest task first.",
+            "Avoid multitasking while studying.",
+            "Turn off unnecessary notifications.",
+            "Stay consistent instead of chasing perfection."
+        ]
+
+        nova(random.choice(productivity_tips))
+
+    # ========================================================
+    # GOALS
+    # ========================================================
+
+    elif user == "my goal":
+
+        nova("Keep learning, keep building projects, and success will follow.")
+
+    elif user == "wish me luck":
+
+        nova("Best of luck! I believe in you. You can do it!")
+
+    elif user == "today is my birthday":
+
+        nova("Happy Birthday! 🎉 I wish you happiness, success, and good health.")
+
+    # ========================================================
+    # CHAT HISTORY
+    # ========================================================
+
+    elif user == "show history":
+
+        if len(history) == 0:
+
+            nova("There is no chat history yet.")
+
+        else:
+
+            nova("Here is your conversation history:")
+
+            for message in history:
+
+                print(message)
+
+    # ========================================================
+    # SAVE CHAT HISTORY
+    # ========================================================
+
+    elif user == "save history":
+
+        try:
+
+            with open("chat_history.txt", "w") as file:
+
+                file.write("========== NOVA CHAT HISTORY ==========\n\n")
+
+                for message in history:
+
+                    file.write(message + "\n")
+
+            nova("Chat history has been saved successfully.")
+
+        except:
+
+            nova("Unable to save chat history.")
+
+    # ========================================================
+    # CONVERSATION STATISTICS
+    # ========================================================
+
+    elif user == "statistics":
+
+        nova(f"You have asked me {total_questions} questions in this session.")
+
+    # ========================================================
+    # ABOUT NOVA
+    # ========================================================
+
+    elif user == "version":
+
+        nova("NOVA AI Chatbot Version 2.0 Premium Edition")
+
+    elif user == "about nova":
+
+        nova(
+            "I am a premium rule-based chatbot created using Python "
+            "for the DecodeLabs Artificial Intelligence Internship."
+        )
+
+        # ========================================================
+    # EXTRA PREMIUM COMMANDS
+    # ========================================================
+
+    elif user == "who am i":
+
+        nova(f"Your name is {username}.")
+
+    elif user == "my name":
+
+        nova(f"You told me your name is {username}.")
+
+    elif user == "how old are you":
+
+        nova("I don't have an age because I am a virtual AI assistant.")
+
+    elif user == "are you human":
+
+        nova("No. I am a Rule-Based AI Chatbot created using Python.")
+
+    elif user == "do you sleep":
+
+        nova("No. I can chat with you anytime.")
+
+    elif user == "do you eat":
+
+        nova("No. I don't eat food because I'm an AI.")
+
+    elif user == "can you sing":
+
+        nova("I wish I could sing, but I can definitely make your coding journey enjoyable.")
+
+    elif user == "can you dance":
+
+        nova("Maybe one day if someone gives me robotic legs!")
+
+    elif user == "tell me something interesting":
+
+        facts = [
+
+            "The first computer programmer was Ada Lovelace.",
+
+            "Python was created by Guido van Rossum.",
+
+            "Artificial Intelligence is used in self-driving cars.",
+
+            "The first computer mouse was made of wood.",
+
+            "The Internet and the World Wide Web are different things."
+
+        ]
+
+        nova(random.choice(facts))
+
+    elif user == "favorite ai":
+
+        nova("Artificial Intelligence itself is my favorite technology.")
+
+    elif user == "who is guido van rossum":
+
+        nova("Guido van Rossum is the creator of the Python programming language.")
+
+    elif user == "who is alan turing":
+
+        nova("Alan Turing is considered one of the fathers of Artificial Intelligence and Computer Science.")
+
+    elif user == "what is computer":
+
+        nova("A computer is an electronic device that processes data according to instructions.")
+
+    elif user == "what is internet":
+
+        nova("The Internet is a global network connecting millions of computers.")
+
+    elif user == "what is software":
+
+        nova("Software is a collection of programs that perform specific tasks.")
+
+    elif user == "what is hardware":
+
+        nova("Hardware refers to the physical parts of a computer.")
+
+    elif user == "what is cloud computing":
+
+        nova("Cloud Computing means using computing services over the Internet.")
+
+    elif user == "what is cybersecurity":
+
+        nova("Cybersecurity protects computers and networks from attacks.")
+
+    elif user == "what is data":
+
+        nova("Data is raw information that can be processed into meaningful insights.")
+
+    elif user == "what is database":
+
+        nova("A database is an organized collection of information.")
+
+    elif user == "what is algorithm":
+
+        nova("An algorithm is a step-by-step procedure for solving a problem.")
+
+    elif user == "what is logic":
+
+        nova("Logic is the process of making decisions based on conditions.")
+
+    elif user == "tell me a fact":
+
+        random_facts = [
+
+            "Honey never spoils.",
+
+            "Octopuses have three hearts.",
+
+            "Bananas are berries.",
+
+            "Sharks are older than trees.",
+
+            "The human brain contains around 86 billion neurons."
+
+        ]
+
+        nova(random.choice(random_facts))
+
+    elif user == "inspire me":
+
+        inspiration = [
+
+            "Don't watch the clock; do what it does. Keep going.",
+
+            "Success starts with self-belief.",
+
+            "Small steps every day lead to big achievements.",
+
+            "Dream big and work hard.",
+
+            "Consistency is more important than motivation."
+
+        ]
+
+        nova(random.choice(inspiration))
+
+    elif user == "who is the best programmer":
+
+        nova("The best programmer is the one who never stops learning.")
+
+    elif user == "bye nova":
+
+        nova("Goodbye! It was wonderful talking with you.")
+        break
+
+    # ========================================================
+    # RANDOM UNKNOWN RESPONSES
+    # ========================================================
+
+    else:
+
+        unknown = [
+
+            "Sorry, I don't understand that command.",
+
+            "I'm still learning. Please try another question.",
+
+            "Type 'help' to see the available commands.",
+
+            "That command is not available yet.",
+
+            "I couldn't understand your request."
+
+        ]
+
+        nova(random.choice(unknown))
+
+# ============================================================
+# SESSION SUMMARY
+# ============================================================
+
+print("\n")
+
+print("=" * 60)
+
+print("           SESSION SUMMARY")
+
+print("=" * 60)
+
+print(f"User Name          : {username}")
+
+print(f"Questions Asked    : {total_questions}")
+
+print(f"Chat History Items : {len(history)}")
+
+print("=" * 60)
+
+nova("Thank you for using NOVA AI Chatbot.")
+
+nova("Have a wonderful day!")
+
+print("\nProgram Ended Successfully.")
