@@ -110,26 +110,19 @@ exit
 ```
 
 ---
-
 # 📸 Project Screenshots
 
-## 💻 Code
+## 💻 Source Code
 
-> Add your code screenshot here.
-
-```
-screenshots/code.png
-```
+![Source Code](screenshots/code.png)
 
 ---
 
 ## 🤖 Chatbot Running
 
-> Add your chatbot terminal screenshot here.
+![Chatbot Demo](screenshots/chatbot.png)
 
-```
-screenshots/chatbot.png
-```
+
 
 ---
 
